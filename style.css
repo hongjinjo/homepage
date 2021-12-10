@@ -1,7 +1,7 @@
 /* css에서 변수를 할당해서 전체 색상을 바꿔쓸 수 있다? */
 :root {
   --text-color: black;
-  --background-color: white; 
+  --background-color: white;
   --accent-color: grey;
 }
 
@@ -16,6 +16,10 @@ a {
   color: var(--text-color);
 }
 
+.contents {
+  justify-content: space-between;
+  padding: 0px 35px;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
