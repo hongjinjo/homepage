@@ -1,51 +1,108 @@
-body{
-  margin:0;
+/* css에서 변수를 할당해서 전체 색상을 바꿔쓸 수 있다? */
+:root {
+  --text-color: black;
+  --background-color: white; 
+  --accent-color: grey;
 }
+
+
+body {
+  margin: 0;
+}
+
+/* 앵커태그에 기본적으로 들어간 밑줄과 색상을 바꿔주기*/
 a {
-  color:black;
-  text-decoration:none;
+  text-decoration: none;
+  color: var(--text-color);
 }
-h1{
-  font-size:45px;
-  text-align:center;
-  border-bottom: none;
-  margin:0;
-  padding:10px;
-  padding-bottom:5px;
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-color);
+  padding: 8px 12px;
 }
-h3{
-  font-size:20px;
-  text-align:center;
-  border-bottom: 1px solid gray;
-  margin:0;
-  padding:0px;
-  padding-bottom:10px;
+
+.navbar_main_name {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  padding-left: 24px;
 }
-ol{
-  border-right:1px solid gray;
-  width:50px;
-  margin:0;
-  padding:20px;
+
+/* navbar 메뉴 꾸미기 */
+.navbar_menu {
+  display: flex;
+  list-style: none; /* 리스트 닷 없애기 */
+  padding-left: 0;
 }
-#grid{
-  display: grid;
-  grid-template-columns: 100px 1fr;
+
+/* 메뉴 간격 조정하기 */
+.navbar_menu li {
+  padding: 8px 12px; /* 나중에 메뉴를 클릭할 때 글자 주변을 눌러도 되게 패딩을 약간 줘서 영역을 확보. 마진을 넣으면 클릭할 수 있는 범위가 작아지고 패딩을 넣으면 박스 안에 넣기 때문에 마우스를 클릭할 수 있는 영역이 넓어짐*/
 }
-#grid ol{
-  padding-left:30px;
-  padding-right:30px;
+
+/* navbar 메뉴 위에 마우스 올리면 변하게 */
+.navbar_menu li:hover {
+  background-color: gray;
+  border-radius: 4px;
 }
-#grid #article{
-  padding-left:25px;
+
+/* sns 아이콘 디자인 */
+.navbar_sns_icons {
+  list-style: none;
+  color: skyblue;
+  display: flex;
+  padding-right: 12px;
+  padding-left: 0;
 }
-@media(max-width:800px){
-  #grid{
+
+/* sns 아이콘들 간격 지정 */
+.navbar_sns_icons li {
+  padding: 4px 6px;
+}
+
+/* 햄버거 모양 메뉴버튼 만들어주기 */
+.navbar_toggleBtn {
+  display: none;
+  position: absolute;
+  right: 32px;
+  font-size: 24px;
+  color: grey;
+}
+
+/* 미디어 쿼리를 이용해 디스플레이가 작아지면 메뉴 형태가 세로로 바뀌도록 */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar_menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  /* 선택했을때 바뀌는 영역이 한 줄 가로 전체가 되도록 바꿔주기 */
+  .navbar_menu li {
+    width: 100%;
+    text-align: center;
+    border-radius: none; /* 메뉴 세로로 바뀔때는 가장자리 곡선 없애고 꽉 차게 만들고 싶은데 이거 적용 안되네 어케 해야하능가???????? */
+  }
+  /* 소셜링크 아이콘 위치도 바꾸기. 얘들은 flex의 방향을 바꾸지 않은 채 가운데로 옮겨와야함 */
+  .navbar_sns_icons {
+    display: none;
+    justify-content: center;
+    width: 100%;
+  }
+  .navbar_toggleBtn {
     display: block;
   }
-  ol{
-    border-right:none;
-  }
-  h1{
-    border-bottom: none;
+
+  .navbar_menu.active,
+  .navbar_sns_icons.active {
+    display: flex;
   }
 }
