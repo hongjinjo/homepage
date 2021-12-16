@@ -6,5 +6,3 @@ toggleBtn.addEventListener('click', () => {
     menu.classList.toggle('active');
     icons.classList.toggle('active');
 });
-
-주석처리 색상 바꾸기 

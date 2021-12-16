@@ -75,6 +75,12 @@ a {
   font-size: 24px;
   color: grey;
 }
+.navbar_main_kor_name {
+  background-color: rgb(221, 218, 218);
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 5px;
+}
 
 /* 미디어 쿼리를 이용해 디스플레이가 작아지면 메뉴 형태가 세로로 바뀌도록 */
 @media screen and (max-width: 768px) {
@@ -93,20 +99,18 @@ a {
   .navbar_menu li {
     width: 100%;
     text-align: center;
-    border-radius: none; /* 메뉴 세로로 바뀔때는 가장자리 곡선 없애고 꽉 차게 만들고 싶은데 이거 적용 안되네 어케 해야하능가???????? */
+    border-radius: none;
   }
-  /* 소셜링크 아이콘 위치도 바꾸기. 얘들은 flex의 방향을 바꾸지 않은 채 가운데로 옮겨와야함 */
-  .navbar_sns_icons {
-    display: none;
-    justify-content: center;
-    width: 100%;
+  .navbar_main_kor_name {
+    position: absolute;
+    right: 74px;
+    margin-top: 1px;
   }
-  .navbar_toggleBtn {
+  .navbar_toggleBtn { 
     display: block;
   }
 
-  .navbar_menu.active,
-  .navbar_sns_icons.active {
+  .navbar_menu.active {
     display: flex;
   }
 }
